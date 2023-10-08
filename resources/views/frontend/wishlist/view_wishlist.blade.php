@@ -29,7 +29,12 @@
                                 <th scope="col" class="end">Remove</th>
                             </tr>
                         </thead>
-                        <tbody id="wishlist"></tbody>
+                        <tbody id="wishlist">
+
+
+
+
+                        </tbody>
                     </table>
                 </div>
             </div>
