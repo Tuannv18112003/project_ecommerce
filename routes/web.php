@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\ProductController;
@@ -268,6 +269,9 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
 
+Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
+
+
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::controller(WishlistController::class)->group(function () {
         Route::get('/wishlist', 'AllWishlist')->name('wishlist');
@@ -275,7 +279,34 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
         Route::get('/wishlist-remove/{id}', 'WishlistRemove');
     });
+
+    Route::controller(CompareController::class)->group(function () {
+        Route::get('/compare', 'AllCompare')->name('compare');
+        
+        Route::get('/get-compare-product', 'GetCompareProduct');
+
+        Route::get('/compare-remove/{id}', 'CompareRemove'); 
+    });
+
+    Route::controller(CartController::class)->group(function () {
+        Route::get('/mycart', 'MyCart')->name('mycart');
+
+        Route::get('/get-cart-product', 'GetCartProduct');
+
+        Route::get('/cart-remove/{rowId}', 'CartRemove');
+
+        Route::get('/cart-decrement/{rowId}', 'CartDecrement');
+
+        Route::get('/cart-increment/{rowId}', 'CartIncrement');
+    }); 
 });
 
 
-Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
+Route::controller(CouponController::class)->group(function () {
+    Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
+    Route::get('/add/coupon', 'AddCoupon')->name('add.coupon');
+    Route::post('/store/coupon', 'StoreCoupon')->name('store.coupon');
+    Route::get('/edit/coupon/{id}', 'EditCoupon')->name('edit.coupon');
+    Route::post('/update/coupon', 'UpdateCoupon')->name('update.coupon');
+    Route::get('/delete/coupon/{id}', 'DeleteCoupon')->name('delete.coupon');
+});

@@ -44,17 +44,19 @@
                                     data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                            <a
+                                                href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                                 <img class="default-img" src="{{ asset($product->product_thambnail) }}"
                                                     alt="" />
 
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
-                                                    class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                                    class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+
+                                            <a aria-label="Compare" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
                                             <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
@@ -83,7 +85,8 @@
                                         <div class="product-category">
                                             <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                                         </div>
-                                        <h2><a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <h2><a
+                                                href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                                 {{ $product->product_name }} </a></h2>
                                         <div class="product-rate-cover">
                                             <div class="product-rate d-inline-block">
@@ -179,10 +182,11 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
-                                                    class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                                    class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+
+                                            <a aria-label="Compare" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
                                             <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
@@ -312,10 +316,11 @@
                                             </a>
                                         </div>
                                         <div class="product-action-1">
-                                            <a aria-label="Add To Wishlist" class="action-btn"
-                                                href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                                    class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToWishList(this.id)"><i class="fi-rs-heart"></i></a>
+
+                                            <a aria-label="Compare" class="action-btn" id="{{ $product->id }}"
+                                                onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
                                             <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                                 data-bs-target="#quickViewModal" id="{{ $product->id }}"
@@ -430,7 +435,8 @@
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
-                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             {{ $item->product_name }} </a>
                                     </h6>
                                     <div class="product-rate-cover">
@@ -476,7 +482,8 @@
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
-                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             {{ $item->product_name }} </a>
                                     </h6>
                                     <div class="product-rate-cover">
@@ -518,7 +525,8 @@
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
-                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             {{ $item->product_name }} </a>
                                     </h6>
                                     <div class="product-rate-cover">
@@ -560,7 +568,8 @@
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
-                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             {{ $item->product_name }} </a>
                                     </h6>
                                     <div class="product-rate-cover">

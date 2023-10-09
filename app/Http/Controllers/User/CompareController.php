@@ -36,4 +36,19 @@ class CompareController extends Controller
     {
         return view('frontend.compare.view_compare');
     }
+
+    public function GetCompareProduct()
+    {
+
+        $compare = Compare::with('product')->where('user_id', Auth::id())->latest()->get();
+
+        return response()->json($compare);
+    }
+
+    public function CompareRemove($id)
+    {
+
+        Compare::where('user_id', Auth::id())->where('id', $id)->delete();
+        return response()->json(['success' => 'Successfully Product Remove']);
+    }
 }
