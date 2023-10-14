@@ -92,6 +92,7 @@
                                                   <span class="badge badge-pill badge-danger" id="stockout"
                                                       style="backgound:red; color: white;"> </span>
                                               </li>
+                                              <li class="mb-5">Vendor:<span class="text-brand" id="pvendor_id"> </span></li>
                                           </ul>
                                       </div>
 
